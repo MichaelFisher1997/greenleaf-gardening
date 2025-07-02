@@ -3,8 +3,10 @@ name: CI
 on:
   push:
     branches:
-      - '**'
-      - '!master'
+      - '!master'  # Run on pushes to any branch except master
+  pull_request:
+    branches:
+      - master  # Run on pull requests targeting master
 
 jobs:
   test:
