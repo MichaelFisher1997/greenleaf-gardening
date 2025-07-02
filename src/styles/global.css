@@ -1,0 +1,176 @@
+/* Base styles */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Custom base styles */
+@layer base {
+  :root {
+    --color-primary: 46, 125, 50;
+    --color-primary-light: 96, 173, 94;
+    --color-primary-dark: 0, 80, 5;
+    --color-secondary: 245, 245, 245;
+    --color-accent: 255, 143, 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-white text-gray-800 font-sans antialiased leading-relaxed;
+  }
+  
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-gray-900 leading-tight tracking-tight;
+  }
+  
+  h1 { 
+    @apply text-4xl sm:text-5xl md:text-6xl;
+  }
+  h2 { 
+    @apply text-3xl sm:text-4xl md:text-5xl;
+  }
+  h3 { 
+    @apply text-2xl sm:text-3xl;
+  }
+  h4 { 
+    @apply text-xl sm:text-2xl;
+  }
+  h5 { 
+    @apply text-lg sm:text-xl;
+  }
+  
+  /* Links */
+  a {
+    @apply text-primary hover:text-primary-dark transition-colors duration-200;
+  }
+  
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-200 ease-in-out;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark hover:shadow-lg hover:-translate-y-0.5;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white hover:shadow-lg hover:-translate-y-0.5;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-gray-800 hover:bg-gray-200 hover:shadow-lg hover:-translate-y-0.5;
+  }
+  
+  /* Forms */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea,
+  select {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200;
+  }
+  
+  /* Container */
+  .container {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Section */
+  section {
+    @apply py-16 md:py-24;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Custom components */
+@layer components {
+  /* Card */
+  .card {
+    @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl;
+  }
+  
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+  }
+  
+  .badge-primary {
+    @apply bg-primary/10 text-primary;
+  }
+  
+  /* Section title */
+  .section-title {
+    @apply text-center mb-12;
+  }
+  
+  .section-title h2 {
+    @apply relative inline-block mb-4;
+  }
+  
+  .section-title h2::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 w-20 h-1 bg-primary -translate-x-1/2 -mb-2;
+  }
+  
+  .section-title p {
+    @apply text-lg text-gray-600 max-w-3xl mx-auto;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  /* Text stroke */
+  .text-stroke {
+    -webkit-text-stroke: 1px currentColor;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Aspect ratio */
+  .aspect-16-9 {
+    aspect-ratio: 16/9;
+  }
+  
+  .aspect-4-3 {
+    aspect-ratio: 4/3;
+  }
+  
+  /* Scrollbar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--color-primary)) rgb(243, 244, 246);
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded-full;
+  }
+}

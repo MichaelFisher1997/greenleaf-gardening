@@ -1,0 +1,225 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Pricing';
+const description = 'Affordable and transparent pricing for our professional gardening and landscaping services.';
+
+const pricingPlans = [
+  {
+    name: 'Basic',
+    price: '99',
+    period: 'per month',
+    description: 'Perfect for small gardens and basic maintenance needs.',
+    features: [
+      'Lawn mowing (bi-weekly)',
+      'Edging & trimming',
+      'Basic garden bed maintenance',
+      'Weed control',
+      'Seasonal cleanup (2x/year)'
+    ],
+    featured: false
+  },
+  {
+    name: 'Standard',
+    price: '199',
+    period: 'per month',
+    description: 'Ideal for medium-sized gardens with regular maintenance needs.',
+    features: [
+      'Everything in Basic, plus:',
+      'Weekly lawn mowing',
+      'Fertilization (seasonal)',
+      'Shrub & hedge trimming',
+      'Mulching (spring & fall)',
+      'Seasonal planting'
+    ],
+    featured: true
+  },
+  {
+    name: 'Premium',
+    price: '349',
+    period: 'per month',
+    description: 'Comprehensive care for large or complex landscapes.',
+    features: [
+      'Everything in Standard, plus:',
+      'Premium lawn treatment',
+      'Tree care & pruning',
+      'Irrigation system maintenance',
+      'Pest & disease management',
+      'Monthly garden consultation'
+    ],
+    featured: false
+  }
+];
+
+const additionalServices = [
+  { name: 'Aeration', price: '75-150', description: 'Lawn aeration to improve soil health' },
+  { name: 'Overseeding', price: '100-250', description: 'Lawn overseeding for a thicker, healthier lawn' },
+  { name: 'Garden Design', price: '300+', description: 'Custom garden design services' },
+  { name: 'Landscape Installation', price: 'Varies', description: 'Custom landscape installation' },
+  { name: 'Irrigation Installation', price: '500+', description: 'Sprinkler system installation' },
+  { name: 'Tree Removal', price: '200-2000', description: 'Tree removal services (price varies by size)' },
+];
+---
+
+<Layout {title} {description}>
+  <!-- Hero Section -->
+  <section class="relative bg-green-700 text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Simple, Transparent Pricing</h1>
+      <p class="text-xl md:text-2xl max-w-3xl mx-auto">
+        Choose the perfect plan for your garden's needs
+      </p>
+    </div>
+  </section>
+
+  <!-- Pricing Plans -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Monthly Maintenance Plans</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          All plans include our satisfaction guarantee and can be canceled anytime.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {pricingPlans.map((plan) => (
+          <div class={`rounded-lg shadow-lg overflow-hidden ${
+            plan.featured 
+              ? 'transform scale-105 border-2 border-primary' 
+              : 'border border-gray-200'
+          }`}>
+            {plan.featured && (
+              <div class="bg-primary text-white text-center py-2 font-medium">
+                Most Popular
+              </div>
+            )}
+            <div class="p-8 bg-white">
+              <h3 class="text-2xl font-bold text-center mb-2">{plan.name}</h3>
+              <div class="text-center mb-6">
+                <span class="text-4xl font-bold">${plan.price}</span>
+                <span class="text-gray-500">/{plan.period}</span>
+              </div>
+              <p class="text-gray-600 text-center mb-6">{plan.description}</p>
+              <ul class="space-y-3 mb-8">
+                {plan.features.map((feature) => (
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                    <span class="text-gray-700">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <a 
+                href="/contact?plan={plan.name.toLowerCase()}" 
+                class={`block w-full text-center py-3 px-6 rounded-lg font-medium ${
+                  plan.featured
+                    ? 'bg-primary text-white hover:bg-primary-dark'
+                    : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                } transition-colors`}
+              >
+                Get Started
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-16 text-center">
+        <p class="text-lg text-gray-600 mb-6">
+          Don't see what you're looking for? We offer custom plans tailored to your specific needs.
+        </p>
+        <a 
+          href="/contact" 
+          class="inline-block bg-primary text-white font-medium px-8 py-3 rounded-lg hover:bg-primary-dark transition-colors"
+        >
+          Request a Custom Quote
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional Services -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Additional Services</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          We also offer these services à la carte
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {additionalServices.map((service) => (
+          <div class="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+            <h3 class="text-xl font-bold mb-2">{service.name}</h3>
+            <p class="text-gray-600 mb-4">{service.description}</p>
+            <div class="flex justify-between items-center">
+              <span class="text-2xl font-bold text-primary">
+                {service.price.startsWith('$') ? '' : '$'}{service.price}
+              </span>
+              <a 
+                href="/contact?service=${encodeURIComponent(service.name)}" 
+                class="text-green-600 hover:text-green-700 font-medium"
+              >
+                Learn more →
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+      
+      <div class="space-y-6">
+        <!-- FAQ Item 1 -->
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-xl font-semibold mb-2">What's included in the monthly fee?</h3>
+          <p class="text-gray-600">
+            Our monthly fee includes all scheduled services as outlined in your chosen plan. Additional services or materials (like plants, mulch, etc.) are billed separately.
+          </p>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-xl font-semibold mb-2">Are there any long-term contracts?</h3>
+          <p class="text-gray-600">
+            No, there are no long-term contracts required. You can cancel or change your plan at any time with a 30-day notice.
+          </p>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-xl font-semibold mb-2">Do you offer one-time services?</h3>
+          <p class="text-gray-600">
+            Yes, we offer one-time services for specific needs. Contact us to discuss your requirements and receive a quote.
+          </p>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="bg-white p-6 rounded-lg shadow">
+          <h3 class="text-xl font-semibold mb-2">How do I pay for services?</h3>
+          <p class="text-gray-600">
+            We accept all major credit cards, checks, and bank transfers. Monthly plans are automatically billed at the beginning of each month.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="text-lg text-gray-600 mb-6">
+          Have more questions? We're here to help!
+        </p>
+        <a 
+          href="/contact" 
+          class="inline-block bg-primary text-white font-medium px-8 py-3 rounded-lg hover:bg-primary-dark transition-colors"
+        >
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

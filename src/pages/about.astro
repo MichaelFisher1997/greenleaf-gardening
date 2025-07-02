@@ -1,0 +1,133 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'About Us';
+const description = 'Learn about GreenLeaf Gardening Services and our commitment to creating beautiful, sustainable outdoor spaces.';
+---
+
+<Layout {title} {description}>
+  <!-- Hero Section -->
+  <section class="relative bg-green-700 text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">About GreenLeaf</h1>
+      <p class="text-xl md:text-2xl max-w-3xl mx-auto">
+        Creating beautiful, sustainable gardens since 2010
+      </p>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">Our Story</h2>
+        <div class="prose prose-lg max-w-none text-gray-600">
+          <p class="mb-6">
+            Founded in 2010, GreenLeaf Gardening Services began as a small team of passionate gardeners with a shared vision: to transform outdoor spaces into beautiful, sustainable environments that bring joy to our clients and benefit the ecosystem.
+          </p>
+          <p class="mb-6">
+            What started as a local service in our community has grown into a trusted name in professional gardening and landscaping, serving both residential and commercial clients throughout the region.
+          </p>
+          <p>
+            Our commitment to quality, sustainability, and customer satisfaction has been the foundation of our success, and we continue to innovate and adapt to bring the best gardening solutions to our clients.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Team -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Meet Our Team</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Team Member 1 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="h-64 bg-green-200 flex items-center justify-center">
+            <span class="text-6xl text-green-600">👨‍🌾</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold">John Smith</h3>
+            <p class="text-green-600 font-medium">Founder & Head Gardener</p>
+            <p class="mt-2 text-gray-600">With over 20 years of experience in horticulture, John leads our team with expertise and passion for sustainable gardening.</p>
+          </div>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="h-64 bg-green-200 flex items-center justify-center">
+            <span class="text-6xl text-green-600">👩‍🌾</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold">Sarah Johnson</h3>
+            <p class="text-green-600 font-medium">Landscape Designer</p>
+            <p class="mt-2 text-gray-600">Sarah's creative vision transforms ordinary spaces into stunning landscapes that blend beauty with functionality.</p>
+          </div>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <div class="h-64 bg-green-200 flex items-center justify-center">
+            <span class="text-6xl text-green-600">👨‍🔧</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold">Mike Rodriguez</h3>
+            <p class="text-green-600 font-medium">Maintenance Specialist</p>
+            <p class="mt-2 text-gray-600">Mike ensures every garden we maintain stays in perfect condition throughout the seasons.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Values -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">Our Values</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Value 1 -->
+        <div class="text-center p-6 rounded-lg bg-green-50">
+          <div class="w-16 h-16 mx-auto bg-green-100 rounded-full flex items-center justify-center mb-4">
+            <i class="fas fa-leaf text-2xl text-green-600"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Sustainability</h3>
+          <p class="text-gray-600">We prioritize eco-friendly practices and materials to minimize our environmental impact.</p>
+        </div>
+
+        <!-- Value 2 -->
+        <div class="text-center p-6 rounded-lg bg-green-50">
+          <div class="w-16 h-16 mx-auto bg-green-100 rounded-full flex items-center justify-center mb-4">
+            <i class="fas fa-medal text-2xl text-green-600"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Quality</h3>
+          <p class="text-gray-600">We take pride in delivering exceptional workmanship and outstanding results.</p>
+        </div>
+
+        <!-- Value 3 -->
+        <div class="text-center p-6 rounded-lg bg-green-50">
+          <div class="w-16 h-16 mx-auto bg-green-100 rounded-full flex items-center justify-center mb-4">
+            <i class="fas fa-heart text-2xl text-green-600"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Passion</h3>
+          <p class="text-gray-600">Our love for gardening drives us to create beautiful, thriving outdoor spaces.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-primary py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Ready to transform your outdoor space?</h2>
+      <p class="text-xl text-white mb-8 max-w-2xl mx-auto">
+        Contact us today for a free consultation and let's create something beautiful together.
+      </p>
+      <a 
+        href="/contact" 
+        class="inline-block bg-white text-primary font-medium px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors"
+      >
+        Get Your Free Quote
+      </a>
+    </div>
+  </section>
+</Layout>

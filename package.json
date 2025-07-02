@@ -1,14 +1,50 @@
 {
-  "name": "--typescript",
+  "name": "greenleaf-gardening",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "private": true,
   "scripts": {
     "dev": "astro dev",
+    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier --write .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
+    "test:update": "vitest -u",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.0.0",
+    "@fortawesome/fontawesome-free": "^6.7.2",
     "astro": "^5.10.1"
+  },
+  "devDependencies": {
+    "@astrojs/netlify": "^6.4.0",
+    "@astrojs/tailwind": "^6.0.2",
+    "@playwright/test": "^1.53.2",
+    "@tailwindcss/typography": "^0.5.12",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.10",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@types/testing-library__jest-dom": "^5.14.9",
+    "@types/testing-library__react": "^10.0.1",
+    "@vitejs/plugin-react": "^4.6.0",
+    "autoprefixer": "^10.4.19",
+    "jsdom": "^26.1.0",
+    "postcss": "^8.4.38",
+    "prettier": "^3.3.2",
+    "prettier-plugin-astro": "^0.14.0",
+    "prettier-plugin-tailwindcss": "^0.5.12",
+    "react-router-dom": "^7.6.3",
+    "tailwindcss": "^3.4.1",
+    "vitest": "^3.2.4"
   }
 }

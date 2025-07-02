@@ -1,22 +1,90 @@
-# Astro Starter Kit: Basics
+# GreenLeaf Gardening Services
 
-```sh
-npm create astro@latest -- --template basics
+A modern, responsive website for GreenLeaf Gardening Services built with Astro and Tailwind CSS.
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR_DEPLOY_ID_HERE/deploy-status)](https://app.netlify.com/sites/YOUR_SITE_NAME/deploys)
+
+## 🚀 Features
+
+- 🌱 **Modern & Responsive Design**: Looks great on all devices
+- ⚡ **Blazing Fast**: Built with Astro for optimal performance
+- 🎨 **Beautiful UI**: Styled with Tailwind CSS
+- 📱 **Contact Form**: Integrated with Netlify Forms
+- 🔍 **SEO Optimized**: With sitemap and meta tags
+- 🐳 **Docker Support**: Easy local development setup
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 16+ (LTS recommended)
+- npm 7+ or yarn 1.22+
+- Docker (optional, for containerized development)
+
+### Local Development
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/greenleaf-gardening.git
+   cd greenleaf-gardening
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+   The site will be available at [http://localhost:4321](http://localhost:4321)
+
+### Using Docker
+
+1. **Build and start the containers**
+   ```bash
+   docker-compose up --build
+   ```
+
+2. **Access the application**
+   Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## 🛠️ Build & Deployment
+
+### Build for Production
+
+```bash
+npm run build
+# or
+yarn build
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+### Preview the Production Build
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+```bash
+npm run preview
+# or
+yarn preview
+```
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+### Deploy to Netlify
 
-## 🚀 Project Structure
+1. Push your code to a GitHub repository
+2. Connect the repository to Netlify
+3. Configure the build settings:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+4. Deploy!
 
-Inside of your Astro project, you'll see the following folders and files:
+## 📄 Project Structure
 
-```text
+```
 /
 ├── public/
 │   └── favicon.svg

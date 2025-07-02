@@ -1,0 +1,23 @@
+# Allow all web crawlers to index the site
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://greenleaf-gardening.example.com/sitemap-index.xml
+
+# Disallow crawling of admin and other private areas
+Disallow: /admin/
+Disallow: /private/
+
+# Allow all assets
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$
+
+# Crawl-delay for all crawlers
+Crawl-delay: 10
