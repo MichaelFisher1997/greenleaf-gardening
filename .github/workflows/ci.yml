@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - '!master'  # Run on pushes to any branch except master
+      - test # Run only on pushes to the test branch for now
   pull_request:
     branches:
       - master  # Run on pull requests targeting master
