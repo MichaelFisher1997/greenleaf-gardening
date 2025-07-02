@@ -2,90 +2,86 @@
 
 A modern, responsive website for GreenLeaf Gardening Services built with Astro and Tailwind CSS.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/YOUR_DEPLOY_ID_HERE/deploy-status)](https://app.netlify.com/sites/YOUR_SITE_NAME/deploys)
+[![CI](https://github.com/MichaelFisher1997/greenleaf-gardening/actions/workflows/ci.yml/badge.svg)](https://github.com/MichaelFisher1997/greenleaf-gardening/actions/workflows/ci.yml)
 
 ## 🚀 Features
 
-- 🌱 **Modern & Responsive Design**: Looks great on all devices
-- ⚡ **Blazing Fast**: Built with Astro for optimal performance
-- 🎨 **Beautiful UI**: Styled with Tailwind CSS
-- 📱 **Contact Form**: Integrated with Netlify Forms
-- 🔍 **SEO Optimized**: With sitemap and meta tags
-- 🐳 **Docker Support**: Easy local development setup
+- 🌱 **Modern & Responsive Design**: Looks great on all devices.
+- ⚡ **Blazing Fast**: Built with Astro for optimal performance.
+- 🎨 **Beautiful UI**: Styled with Tailwind CSS.
+- 🐳 **Dockerized**: Includes configurations for both development and production environments.
+- 🔄 **CI/CD**: Automated testing with GitHub Actions on every push.
+- 🔍 **SEO Optimized**: With sitemap and meta tags.
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js 16+ (LTS recommended)
-- npm 7+ or yarn 1.22+
-- Docker (optional, for containerized development)
+- Node.js 20+
+- npm 9+ or yarn
+- Docker
 
-### Local Development
+### Local Development (Without Docker)
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/greenleaf-gardening.git
-   cd greenleaf-gardening
-   ```
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/MichaelFisher1997/greenleaf-gardening.git
+    cd greenleaf-gardening
+    ```
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn
-   ```
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
 
-3. **Start the development server**
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
+3.  **Start the development server**
+    ```bash
+    npm run dev
+    ```
 
-   The site will be available at [http://localhost:4321](http://localhost:4321)
+    The site will be available at [http://localhost:4321](http://localhost:4321).
 
-### Using Docker
+## 🐳 Dockerized Environments
 
-1. **Build and start the containers**
-   ```bash
-   docker-compose up --build
-   ```
+This project includes two Docker setups: one for local development and one for production.
 
-2. **Access the application**
-   Open [http://localhost:3000](http://localhost:3000) in your browser
+### Development with Docker
 
-## 🛠️ Build & Deployment
+This setup provides a hot-reloading development environment.
 
-### Build for Production
+1.  **Build and start the container**
+    ```bash
+    docker-compose up --build
+    ```
 
-```bash
-npm run build
-# or
-yarn build
-```
+2.  **Access the application**
+    Open [http://localhost:4321](http://localhost:4321) in your browser.
 
-### Preview the Production Build
+### Production with Docker
 
-```bash
-npm run preview
-# or
-yarn preview
-```
+This setup builds a lightweight, optimized static site served by Nginx.
 
-### Deploy to Netlify
+1.  **Build and start the container**
+    ```bash
+    docker-compose -f docker-compose.prod.yml up -d --build
+    ```
 
-1. Push your code to a GitHub repository
-2. Connect the repository to Netlify
-3. Configure the build settings:
-   - Build command: `npm run build`
-   - Publish directory: `dist`
-4. Deploy!
+2.  **Access the application**
+    Open [http://localhost:8080](http://localhost:8080) in your browser (or whichever port you've set in your `.env` file).
+
+## 🔄 Continuous Integration
+
+This repository uses GitHub Actions to run tests automatically on every push to a non-master branch and on every pull request to `master`. This ensures code quality and prevents regressions.
 
 ## 📄 Project Structure
 
 ```
 /
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+├── nginx/
+│   └── nginx.conf
 ├── public/
 │   └── favicon.svg
 ├── src/
@@ -93,10 +89,12 @@ yarn preview
 │   │   └── Layout.astro
 │   └── pages/
 │       └── index.astro
+├── Dockerfile
+├── docker-compose.yml
+├── Dockerfile.prod
+├── docker-compose.prod.yml
 └── package.json
 ```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
 ## 🧞 Commands
 
@@ -107,6 +105,7 @@ All commands are run from the root of the project, from a terminal:
 | `npm install`             | Installs dependencies                            |
 | `npm run dev`             | Starts local dev server at `localhost:4321`      |
 | `npm run build`           | Build your production site to `./dist/`          |
+| `npm run test`            | Runs the test suite with Vitest                  |
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
