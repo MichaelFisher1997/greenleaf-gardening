@@ -1,0 +1,37 @@
+# Build stage
+FROM node:20-alpine AS builder
+WORKDIR /app
+
+# Install dependencies first for better caching
+COPY package*.json ./
+RUN npm ci --omit=dev
+
+# Copy the rest of the application
+COPY . .
+
+# Build the application
+RUN npm run build
+
+# Production stage
+FROM node:20-alpine AS runner
+WORKDIR /app
+
+# Copy only necessary files from builder
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/.astro ./.astro
+
+# Environment variables
+ENV NODE_ENV=production
+ENV PORT=4321
+
+# Expose the port the app runs on
+EXPOSE 4321
+
+# Set non-root user for security
+RUN chown -R node:node /app
+USER node
+
+# Start the application
+CMD ["node", "--enable-source-maps", "dist/server/entry.mjs"]
