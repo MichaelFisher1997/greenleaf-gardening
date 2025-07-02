@@ -3,11 +3,8 @@ name: CI
 on:
   push:
     branches:
-      - test # Run only on pushes to the test branch for now
-  pull_request:
-    branches:
-      - master  # Run on pull requests targeting master
-
+      - '**'
+      - '!master'
 jobs:
   test:
     runs-on: ubuntu-latest
